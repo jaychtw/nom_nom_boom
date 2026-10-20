@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#fff8eb" />
+    <meta
+      name="description"
+      content="Five little wanderers. One sleepy snack enthusiast. A cozy, bilingual game about becoming much too big for the screen."
+    />
+    <title>Nom Nom BOOM! · A very big appetite</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2220%22%20fill%3D%22%23fff6e5%22%2F%3E%3Cpath%20d%3D%22M15%2022L14%209L27%2017Q33%2012%2039%2017L51%2010L48%2025Q61%2056%2033%2057Q5%2057%2015%2022%22%20fill%3D%22%23f6b697%22%20stroke%3D%22%23713e36%22%20stroke-width%3D%222%22%2F%3E%3Cpath%20d%3D%22M20%2032q5%205%2010%200m7%200q5%205%2010%200m-18%209q5%205%2010%200%22%20fill%3D%22none%22%20stroke%3D%22%23713e36%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M31%2016Q27%204%2039%206Q42%2016%2031%2016%22%20fill%3D%22%23789976%22%2F%3E%3C%2Fsvg%3E"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="preload"
+      href="./assets/friend.svg"
+      as="image"
+      type="image/svg+xml"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Nom Nom BOOM!"
+        >nom nom <b>BOOM<span>!</span></b
+        ><i aria-hidden="true">✳</i></a
+      >
+      <div class="header-right">
+        <span class="edition" data-i18n="edition"></span
+        ><button
+          class="language pill"
+          data-action="language"
+          type="button"
+        ></button>
+      </div>
+    </header>
+    <main>
+      <section
+        id="title-screen"
+        class="title-screen"
+        aria-labelledby="hero-heading"
+      >
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="tiny-flower" aria-hidden="true">✳</span>
+            <span data-i18n="tagline"></span>
+          </p>
+          <h1 id="hero-heading">
+            Nom Nom<br /><span>BOOM!</span
+            ><svg aria-hidden="true" viewBox="0 0 70 64">
+              <path d="M9 31L1 18M22 18L26 2M39 29L57 12M47 44L68 44" />
+            </svg>
+          </h1>
+          <h2 data-i18n="subtitle"></h2>
+          <p class="intro" data-i18n="intro"></p>
+          <div class="title-actions">
+            <button class="primary" data-action="play">
+              <span data-i18n="play"></span
+              ><svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M5 19L19 5M5 5H19V19" />
+              </svg></button
+            ><button class="text-button" data-action="records">
+              <span class="book-icon" aria-hidden="true">▤</span>
+              <span data-i18n="records"></span>
+            </button>
+          </div>
+          <p class="control-hint">
+            <span class="key-icon" aria-hidden="true">↑</span
+            ><span class="desktop-instructions" data-i18n="keys"></span
+            ><span class="touch-instructions" data-i18n="touch"></span>
+          </p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-label">100% <span data-i18n="artCozy"></span></div>
+          <canvas id="title-art" width="700" height="650"></canvas
+          ><span class="art-caption" data-i18n="artCaption"></span
+          ><span class="art-scribble" data-i18n="artNom"></span>
+        </div>
+        <div class="title-notes">
+          <span><i aria-hidden="true">✿</i><span data-i18n="note1"></span></span
+          ><span
+            ><i aria-hidden="true"
+              ><svg class="arrow-icon" viewBox="0 0 24 24">
+                <path d="M5 19L19 5M5 5H19V19" /></svg></i
+            ><span data-i18n="note2"></span></span
+          ><span
+            ><i aria-hidden="true">☼</i><span data-i18n="note3"></span
+          ></span>
+        </div>
+      </section>
+      <section
+        id="game-screen"
+        class="game-screen"
+        aria-label="Nom Nom BOOM!"
+        hidden
+      >
+        <div class="hud">
+          <div class="stat">
+            <span data-i18n="time"></span
+            ><strong id="timer">0.00<span>s</span></strong>
+          </div>
+          <div class="snack-stat">
+            <div id="snack-dots" aria-hidden="true"></div>
+            <span
+              ><b id="eaten-count">0</b> / 5 <span data-i18n="eaten"></span
+            ></span>
+          </div>
+          <button class="pause-button pill" data-action="pause">
+            <span class="pause-icon" aria-hidden="true"></span>
+            <span data-i18n="pause"></span>
+          </button>
+        </div>
+        <div class="arena-wrap">
+          <canvas
+            id="arena"
+            width="960"
+            height="540"
+            tabindex="0"
+            role="img"
+          ></canvas>
+          <div id="ready-message" class="ready-message">
+            <strong data-i18n="ready"></strong
+            ><span data-i18n="readyHint"></span>
+          </div>
+          <div class="arena-corner" aria-hidden="true">✿</div>
+        </div>
+        <div class="game-bottom">
+          <p data-i18n="cozy"></p>
+          <div class="dpad" role="group" aria-label="Movement">
+            <button data-dir="up" aria-label="Move up">↑</button
+            ><button data-dir="left" aria-label="Move left">←</button
+            ><span aria-hidden="true">✿</span
+            ><button data-dir="right" aria-label="Move right">→</button
+            ><button data-dir="down" aria-label="Move down">↓</button>
+          </div>
+          <span
+            class="desktop-instructions control-hint"
+            data-i18n="keys"
+          ></span>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <span data-i18n="credit"></span>
+      <div class="settings">
+        <button data-action="mute" class="setting-button"></button
+        ><span aria-hidden="true">·</span
+        ><button data-action="motion" class="setting-button"></button>
+      </div>
+      <span class="version">v1.0 <span aria-hidden="true">✿</span></span>
+    </footer>
+    <div id="finale" class="finale" hidden>
+      <canvas id="finale-canvas"></canvas>
+      <div id="boom-caption" data-i18n="boom"></div>
+    </div>
+    <dialog id="modal" aria-labelledby="modal-heading">
+      <div id="modal-content"></div>
+    </dialog>
+    <div
+      id="announcer"
+      class="sr-only"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

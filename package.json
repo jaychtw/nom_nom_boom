@@ -1,0 +1,17 @@
+{
+  "name": "nom-nom-boom",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A tiny, cozy browser game about a very big appetite.",
+  "scripts": {
+    "dev": "node scripts/serve.js",
+    "start": "node scripts/serve.js",
+    "build": "node scripts/build.js",
+    "test": "node --test tests/core.test.js",
+    "test:browser": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.61.1"
+  }
+}
