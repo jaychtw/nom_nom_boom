@@ -19,7 +19,7 @@ Open `http://localhost:4173` in a modern browser. **No install is required to pl
 Optional port: `PORT=8080 npm run dev` (POSIX shell). Stop with Ctrl+C.
 
 ## Play
-
+URL: [Nom Nom BOOM!](https://jaychtw.github.io/nom_nom_boom/)
 - **Arrow keys / WASD:** move; diagonals are normalized.
 - **Touch:** hold the large directional buttons; two fingers allow diagonal movement.
 - **Escape / P:** pause or resume.
